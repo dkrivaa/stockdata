@@ -13,10 +13,14 @@ def get_data():
         nested_data = stock_data['data']['data']
         # Making dataframe with all stock data
         df = pd.DataFrame(nested_data)
+        df = df.rename(columns={'s': 'symbol', 'n': 'company name',
+                                'fcf': 'free_cash_flow', 'netCash': 'net_cash_debt'})
+        df.drop('no', axis=1, inplace=True)
+        return df
 
 
-def stock_data(quote):
-    url = f'https://stockanalysis.com/api/charts/s/{quote}/MAX/l/week'
+def stock_data(symbol):
+    url = f'https://stockanalysis.com/api/charts/s/{symbol}/MAX/l/week'
     response = requests.get(url)
     # Check if the request was successful (status code 200)
     if response.status_code == 200:
