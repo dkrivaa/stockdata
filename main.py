@@ -23,8 +23,7 @@ for i in range(1, len(df)):
 
 df_data.index = pd.to_datetime(df_data.index, unit='s')
 
-print(df_data)
-
+df_data.to_csv('stockdata.csv')
 
 
 
