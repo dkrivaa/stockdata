@@ -30,12 +30,12 @@ def specific_stock_data(symbol):
         # Extract data
         nested_data = stock_data['data']
         # Making dataframe with all stock data
-        df = pd.DataFrame(nested_data)
-        df = df.rename(columns={'t': 'date', 'c': 'close'})
-        df['date'] = df['date'].apply(lambda x: datetime.datetime.fromtimestamp(x))
-        df['date'] = df['date'].dt.date
-        df.drop('o', axis=1, inplace=True)
-        return df
+        df_data = pd.DataFrame(nested_data)
+        df_data = df_data.rename(columns={'t': 'date', 'c': 'close'})
+        # df_data['date'] = df_data['date'].apply(lambda x: datetime.datetime.fromtimestamp(x))
+        # df_data['date'] = df_data['date'].dt.date
+        df_data.drop('o', axis=1, inplace=True)
+        return df_data
 
 
 
