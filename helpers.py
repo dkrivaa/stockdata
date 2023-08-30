@@ -109,3 +109,7 @@ def industry_list():
     return industry_dict
 
 
+def get_csv():
+    df = pd.read_csv('stockdata.csv')
+    return df
+
