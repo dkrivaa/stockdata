@@ -86,7 +86,7 @@ def sector_list():
     return sector_dict
 
 
-# Make lists of symbols (companies) according to sector affiliation
+# Make lists of symbols (companies) according to industry affiliation
 def industry_list():
     df = get_data()
     # Making empty dict to store lists of companies in the various industries
