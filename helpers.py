@@ -63,7 +63,49 @@ def make_csv():
     df_data.to_csv('stockdata.csv')
 
 
+# Make lists of symbols (companies) according to sector affiliation
+def sector_list():
+    df = get_data()
+    # Making empty dict to store lists of companies in the various sectors
+    sector_dict = {}
+    # List of sectors:
+    sectors = df['sector'].unique().tolist()
+
+    for sector in sectors:
+        # Creating an empty list for each name and storing it in the dictionary
+        sector_dict[sector] = []
+
+    for i in range(0, len(df)):
+        for sector in sectors:
+            if df['sector'][i] == sector:
+                sector_dict[sector].append(df['symbol'][i])
+
+    for key in sector_dict.keys():
+        print(key, sector_dict[key])
+
+    return sector_dict
 
 
+# Make lists of symbols (companies) according to sector affiliation
+def industry_list():
+    df = get_data()
+    # Making empty dict to store lists of companies in the various industries
+    industry_dict = {}
+    # List of industries:
+    industries = df['industry'].unique().tolist()
+
+    for industry in industries:
+        # Creating an empty list for each name and storing it in the dictionary
+        industry_dict[industry] = []
+
+    for i in range(0, len(df)):
+        for industry in industries:
+            if df['industry'][i] == industry:
+                industry_dict[industry].append(df['symbol'][i])
+
+    for key in industry_dict.keys():
+        print(key, industry_dict[key])
+
+    return industry_dict
 
 
