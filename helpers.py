@@ -80,8 +80,8 @@ def sector_list():
             if df['sector'][i] == sector:
                 sector_dict[sector].append(df['symbol'][i])
 
-    for key in sector_dict.keys():
-        print(key, sector_dict[key])
+    # for key in sector_dict.keys():
+    #     print(key, sector_dict[key])
 
     return sector_dict
 
