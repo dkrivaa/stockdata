@@ -103,8 +103,8 @@ def industry_list():
             if df['industry'][i] == industry:
                 industry_dict[industry].append(df['symbol'][i])
 
-    for key in industry_dict.keys():
-        print(key, industry_dict[key])
+    # for key in industry_dict.keys():
+    #     print(key, industry_dict[key])
 
     return industry_dict
 
